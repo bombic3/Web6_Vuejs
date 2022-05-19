@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Directive</title>
+  <link rel="stylesheet" href="css/vueoption.css">
+</head>
+<body>
+  <h1>Vue Directive</h1>
+  <section>
+    <h2>v-text VS v-html</h2>
+    <div id="vm1">
+      <p>Mustache : {{ msgStyle }}</p>
+      <p>v-text Directive : <span v-text="msgStyle"></span></p>
+      <p>v-html Directive : <span v-html="msgStyle"></span></p>
+    </div>
+  </section>
+  <section>
+    <h2>v-if</h2>
+    <div id="vm2">
+      <!-- <p>보간법 Mustache : {{ msgStyle }}</p> -->
+      <p v-if="n1<5">{{n1}}</p>
+      <p v-else-if="n1===5">중간</p>
+      <p v-else>초과</p>
+      <button v-on:click="up">up</button> {{n1}}
+    </div>
+  </section>
+  <section>
+    <h2>v-for 배열(배열안에 객체 넣음)</h2>
+    <div id="vm3">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">번호</th>
+            <th scope="col">이름</th>
+            <th scope="col">나이</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="person in people">
+            <td>{{person.id}}</td>
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <p v-for="person in people" >
+        {{person.id}} {{person.name}} {{person.age}}
+      </p>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>v-for 객체</h2>
+    <div id="vm4">
+      <!-- <p v-for="value in person" > -->
+      <p v-for="(value,name) in person" >
+        {{ name }} : {{ value }}
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>v-bind</h2>
+    <div id="vm5">
+      <p><a v-bind:href="url1" v-bind:target="newTab">네이버</a></p>
+      <p><a v-bind:href="url2" v-bind:target="newTab">다음</a></p>
+    </div>
+  </section>
+  <section>
+    <h2>v-bind(style적용해보기)</h2>
+    <div id="vm6">
+      <span :class="a">안녕하세요!</span>
+      <!-- v-vind생략가능 v-on:을 생략하고 @붙이는 것과 같이 -->
+      <!-- <span v-bind:class="b">안녕하세요!</span> -->
+      <button v-on:click="cl">click</button>
+    </div>
+  </section>
+  <section>
+    <h2>v-model</h2>
+    <div id="vm7">
+      <p>{{ msgModel }}</p>
+      <input type="text" v-model="msgModel">
+    </div>
+  </section>
+  <section>
+    <h2>v-model line style</h2>
+    <div id="vm8">
+      <p style="color:red;">인라인 스타일 직접 지정</p>
+      <p v-bind:style="cRed">인라인 스타일 v-bind로 지정</p>
+      <p v-bind:style="{backgroundColor:warning}">인라인 스타일 v-bind로 여러개 지정</p>
+      <p v-bind:style="{color:warning, fontWeight:highlight}">인라인 스타일 v-bind로 여러개 지정</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model class</h2>
+    <div id="vm9">
+      <p v-bind:class="dotClass">클래스 v-bind로 지정</p>
+      <p v-bind:class="[dashClass, redClass]">다중 클래스 v-bind로 지정</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model class</h2>
+    <div id="vm10">
+      <input v-model="userName" placeholder="이름을 입력하세요">
+      <p> {{userName}} </p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model class</h2>
+    <div id="vm11">
+      <textarea v-model="userSuggestion" placeholder="건의 내용을 입력하세요."></textarea>
+      <p> {{userSuggestion}} </p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model checkbox</h2>
+    <div id="vm12">
+      <input type="checkbox" v-model="check" id="check" value="dd">
+      <label for="check">선택하세요.</label>
+      <p>{{ check }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model checkbox2</h2>
+    <div id="vm13">
+      <p><input type="checkbox" id="course1" value="메타버스/제페토 개발과정" v-model="course"><label for="course1">메타버스/제페토 개발과정</label></p>
+      <p><input type="checkbox" id="course2" value="웹디자인/웹개발자 취업과정" v-model="course"><label for="course2">웹디자인/웹개발자 취업과정</label></p>
+      <p><input type="checkbox" id="course3" value="광고편집 취업과정" v-model="course"><label for="course3">광고편집 취업과정</label></p>
+      <p><input type="checkbox" id="course4" value="건축/인테리어 취업과정" v-model="course"><label for="course4">건축/인테리어 취업과정</label></p>
+      <p><input type="checkbox" id="course5" value="모션그래픽/영상 취업과정" v-model="course"><label for="course5">모션그래픽/영상 취업과정</label></p>
+      <p><input type="checkbox" id="course6" value="3D미야/CG 취업과정6" v-model="course"><label for="course6">3D미야/CG 취업과정</label></p>
+    
+      <p>{{ course }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model radio</h2>
+    <div id="vm14">
+      <p><input type="radio" id="colorBg1" value="red" v-model="colorBg"><label for="colorBg1">red</label></p>
+      <p><input type="radio" id="colorBg2" value="green" v-model="colorBg"><label for="colorBg2">green</label></p>
+      <p><input type="radio" id="colorBg3" value="blue" v-model="colorBg"><label for="colorBg3">blue</label></p>
+      <p><input type="radio" id="colorBg4" value="orange" v-model="colorBg"><label for="colorBg4">orange</label></p>
+    
+      <div v-bind:style="{backgroundColor:colorBg}">{{ colorBg }}</div>
+    </div>
+  </section>
+  <section>
+    <h2>과제</h2>
+    <div id="vm15">
+      <p><input type="radio" id="img1" value="img/favorite_black_24dp.svg" v-model="imgCh"><label for="img1">하트</label></p>
+      <p><input type="radio" id="img2" value="img/thumb_up_black_24dp.svg" v-model="imgCh"><label for="img2">굳</label></p>
+      <p><input type="radio" id="img3" value="img/pets_black_24dp.svg" v-model="imgCh"><label for="img3">강아지 발바닥</label></p>
+      <img v-bind:src="imgCh">
+    </div>
+  </section>
+  <section>
+    <h2>v-model button</h2>
+    <div id="vm16">
+      <input type="checkbox" v-model="myAgree" id="agreement">
+      <label for="agreement">동의합니다.</label>
+      <button v-bind:disabled="myAgree == false">전송</button>
+    </div>
+  </section>
+  <section>
+    <h2>v-model select</h2>
+    <div id="vm17">
+      <label for="area">지역</label>
+      <select v-model="mySelect" id="area">
+        <option disabled value="">선택하세요.</option>
+        <option value="서울">서울</option>
+        <option value="인천">인천</option>
+        <option value="부산">부산</option>
+        <option value="광주">광주</option>
+        <option value="제주">제주</option>
+      </select>
+      <p>선택한 지역은 <b>{{ mySelect }}</b>입니다.</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model select color</h2>
+    <div id="vm18">
+      <label for="areacolor">지역</label>
+      <select v-model="mySelectC" id="areacolor">
+        <option disabled value="">선택하세요.</option>
+        <option value="red">빨강</option>
+        <option value="green">초록</option>
+        <option value="blue">파랑</option>
+        <option value="orange">주황</option>
+      </select>
+      <p v-bind:style="{backgroundColor:mySelectC}">선택한 색상은 <b>{{ mySelectC }}</b>입니다.</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model number</h2>
+    <div id="vm19">
+      <label for="number">수량</label>
+      <input type="number" id="number" v-model.number="myNumber">
+      <p>100을 더한 수량은 <b>{{ 100+myNumber }}</b>입니다.</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model lazy - 게을러져서 엔터눌러야 된다</h2>
+    <div id="vm20">
+      <label for="userId">아이디 : </label>
+      <input type="text" id="userId" v-model.lazy="userId" placeholder="아이디를 입력하세요.">
+      <p>압력한 아이디는 <b>{{ userId }}</b>입니다.</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model trim - 양 옆 공백 자동 없앰</h2>
+    <div id="vm21">
+      <label for="shortRivew">한 줄 후기 : </label>
+      <input type="text" id="shortRivew" v-model.trim="userRivew" placeholder="후기입력하세요">
+      <p>작성하신 내용은 <b>{{ userRivew }}</b> 입니다.</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-model select for</h2>
+    <div id="vm22">
+      <label for="subject">수강 희망 내용 선택 : </label>
+      <select id="subject" v-model="userSubject">
+        <option disabled value="">희망 수강 내용 선택</option>
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <p>희망하는 과목은 <b>{{ userSubject }}</b> 입니다.</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:click 한번만 가능하게</h2>
+    <div id="vm23">
+      <button v-bind:disabled="clicked" v-on:click="userClick">클릭</button>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:click 증가</h2>
+    <div id="vm24">
+      <button v-on:click="counter1 += 1">클릭</button>
+      <p>클릭한 횟수는 {{ counter1 }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:click 곱하기</h2>
+    <div id="vm25">
+      <button v-on:click="multiply(2)">x2</button>
+      <button v-on:click="multiply(3)">x3</button>
+      <button v-on:click="multiply(5)">x5</button>
+      <p>값 {{ counter2 }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:click keyup.enter.shift</h2>
+    <div id="vm26">
+      <input type="text" v-model="enterText" v-on:keyup.enter.shift="enterAlert" placeholder="쉬프트+엔터를 눌러주세요.">
+      <p>{{ enterText }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:click 계산기</h2>
+    <div id="vm27">
+      <p>숫자1 : <input type="number" v-model.number="n1"></p>
+      <p>숫자2 : <input type="number" v-model.number="n2"></p>
+      <button v-on:click="nSum">+</button>
+      <button v-on:click="nM">-</button>
+      <button v-on:click="nMul">x</button>
+      <button v-on:click="nV">나누기</button>
+      <p>값 : {{ nResult }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:click</h2>
+    <div id="vm28">
+      <p>이름을 입력하세요 : <input type="text" v-on:keyup.enter="textAlert" v-model="text1"></p>
+      <button v-on:click="textAlert">확인</button>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:mouseover / v-on:mouseout</h2>
+    <div id="vm29">
+      <p v-on:mouseover="overText" v-on:mouseout="outText">
+        <span v-if="hovered == false">마우스를 올려놓으세요.</span>
+        <span v-else>마우스를 {{text2}}습니다.</span>
+      </p>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:focus / v-on:blur</h2>
+    <div id="vm30">
+      <p v-if="tabbed == false"><b>Tab</b>키를 누르세요</p>
+      <p v-else><b>{{ text3 }}</b>가 발생되었습니다.</p>
+      <button v-on:focus="focusText" v-on:blur="blurText">버튼</button>
+      <button v-on:click="tabreset" class="red">초기화</button>
+    </div>
+  </section>
+  <section>
+    <h2>v-on:click left + v-if</h2>
+    <div id="vm31">
+      <p v-if="clicked == false">마우스 <b>왼쪽</b>이나 <b>오른쪽</b> 버튼을 클릭해주세요.</p>
+      <p v-else>마우스 <b>{{ text4 }}</b> 버튼이 클릭되었습니다.</p>
+      <button v-on:click.left="clickLeft" v-on:contextmenu="clickContextmenu">버튼</button>
+      <button v-on:click="clickReset" class="red">초기화</button>
+    </div>
+  </section>
+  <section>
+    <h2>과제</h2>
+    <div id="vm32">
+      <!-- 
+        1. 웹1~웹5가지 과목명+배우는 내용 데이터로 만들기
+        2. 테이블로 반복문이용하여 랜더링하기
+       -->
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">번호</th>
+            <th scope="col">과목</th>
+            <th scope="col">내용</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="classList in objClass">
+            <td>{{classList.id}}</td>
+            <td>{{classList.ObjectName}}</td>
+            <td>{{classList.objCon}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  
+  <script src="/js/vue.min.js"></script>
+  <script src="/js/directive.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/animate.css-main/animate.css">
+  <link rel="stylesheet" href="/css/v-animation.css">
+</head>
+<body>
+  <h1>Animation</h1>
+  <section>
+    <h2>transition</h2>
+    <div id="vm1"> <!-- 토글 show = !show -->
+      <button v-on:click="show = !show">클릭</button>
+      <transition name="fade">
+        <p v-if="show">안녕</p>
+      </transition>
+    </div>
+  </section>
+  <section>
+    <h2>@keyframes</h2>
+    <div id="vm2">
+      <button v-on:click="show = !show">클릭</button>
+      <transition name="myslide">
+        <p v-if="show">안녕</p>
+      </transition>
+    </div>
+  </section>
+  <section>
+    <h2>checkbox</h2>
+    <div id="vm3">
+      <input type="checkbox" v-model="isChecked">
+      <transition name="fade">
+        <p v-if="isChecked">안녕</p>
+      </transition>
+    </div>
+  </section>
+  <section>
+    <h2>list</h2>
+    <div id="vm4">
+      <transition-group name="fade">
+        <p v-for="color in colorName" v-bind:key="color">{{color}}</p>
+      </transition-group>
+      <input type="text" placeholder="색상명을 입력하세요." v-model="addColor">
+      <button v-on:click="addList">항목추가</button>
+      <!-- <button v-on:click="removeList">항목제거</button> -->
+    </div>
+  </section>
+  <script src="/js/vue.min.js"></script>
+  <script src="/js/v-animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+h1, h2 {
+  margin-top: 50px;
+  padding: 0 20px;
+}
+div {
+  border: 1px solid rgb(126, 126, 126);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 20px 10px;
+}
+button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  border: none;
+  box-shadow: 1px 1px 5px rgb(126, 126, 126);
+  border-radius: 10px;
+  background-color: rgb(200, 224, 255);
+  cursor: pointer;
+}
+button:hover {
+  color: #fff;
+  background-color: rgb(126, 126, 126);
+}
+button.red:hover {
+  background-color: rgb(126, 126, 126);
+}
+button.red {
+  background-color: rgb(250, 194, 194);
+}
+
+
+
+table { border-collapse: collapse;}
+thead {
+  background: #333; 
+  color: #eee;
+}
+th { font-weight: normal;}
+th,td {
+  border: 1px solid #ccc; 
+  padding: 10px 20px;
+  text-align: center;
+}
+tbody tr:nth-child(even) {
+  background: #ddd;
+}
+
+
+#vm6 span, #vm9 p {
+  display: block;
+  border: 3px solid lightblue; 
+  padding: 20px;
+  margin: 10px 0;
+}
+#vm6 .dotblue, #vm9 .dotblue {
+  border-color: blue;
+  border-style: dotted;
+}
+#vm6 .dash, #vm9 .dash {
+  border-color: rgb(255, 170, 131);
+  border-style: dashed;
+  border-radius: 20px;
+}
+#vm9 .red {
+  border-color: red;
+}
+
+
+
+#vm11 p { white-space: pre-line;}
+#vm11 textarea {
+  width: 200px;
+  height: 100px;
+}
+
+
+
+#vm14 div, #vm18 p, #vm29 p {
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: bold;
+  background: gray;
+}
+
+
+#vm29 p:hover {
+  background-color: lightcoral;
+}
+
+
+

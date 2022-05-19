@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue compoenet</title>
+  <link rel="stylesheet" href="css/component.css">
+</head>
+<body>
+  <h1>Compoenet</h1>
+  <section>
+    <h2>기본</h2>
+    <div id="vm1">
+      <mycomp class="style1"></mycomp>
+    </div>
+  </section>
+  <section>
+    <h2>기본 확장(반복사용가능)</h2>
+    <div id="vm2">
+      <mycomp></mycomp>
+      <!-- <local-comp></local-comp> 지역컴포넌트 인식도 안됨-->
+    </div>
+  </section>
+  <section>
+    <h2>지역 컴포넌츠(components)</h2>
+    <div id="vm3">
+      <local-comp class="style1"></local-comp>
+    </div>
+  </section>
+  <section>
+    <h2>컴포넌츠(components)안의 data 함수형식</h2>
+    <div id="vm4">
+      <call-data></call-data>
+      <counter></counter>
+    </div>
+  </section>
+  <section>
+    <h2>event-counter</h2>
+    <div id="vm5">
+      <counter></counter>
+      <mycomp></mycomp>
+    </div>
+  </section>
+  <section>
+    <h2>과제</h2>
+    <div id="vm6">
+      <!-- 
+        1. colored 태그 생성
+        2. 검은색이 아닌 텍스트를 가진 p요소 생성
+        배경 흰색 빼고
+       -->
+       <colored class="style1"></colored>
+    </div>
+  </section>
+
+  <section>
+    <h2>for</h2>
+    <div id="vm7">
+      <h3>{{web}}</h3>
+      <web></web>
+      <h3>{{dtp}}</h3>
+      <dtp></dtp>
+      <h3>{{artw}}</h3>
+      <artw></artw>
+    </div>
+  </section>
+
+  <section>
+    <h2>props</h2>
+    <div id="vm8">
+      <!-- 예시라서 태그명에 숫자붙임. 원랜 숫자 ㄴㄴ -->
+      <mycomp1 comp-att="우아앙"></mycomp1>
+    </div>
+  </section>
+
+  <section>
+    <h2>props v-bind: (data 가져다쓰기)</h2>
+    <div id="vm9">
+      <!-- data 가져다쓰기 위해 v-bind:로 끌어오기 -->
+      <mycomp2 v-bind:comp1-num="num1"></mycomp2>
+      <mycomp3 v-bind:comp2-num="num1"></mycomp3>
+      <mycomp3 v-bind:comp2-num="num2"></mycomp3>
+    </div>
+  </section>
+
+  <section>
+    <h2>props for</h2>
+    <div id="vm10">
+      <ul>
+        <web-props v-for="ss in webs" v-bind:websub="ss"></web-props>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>props v-model</h2>
+    <div id="vm11">
+      <p>{{inputText}}</p>
+      <input type="text" placeholder="텍스트를 입력하세요." v-model="inputText">
+      <comp-input v-bind:comp-input-text="inputText"></comp-input>
+    </div>
+  </section>
+
+  <script src="js/vue.min.js"></script>
+  <script src="js/component.js"></script>
+</body>
+</html>

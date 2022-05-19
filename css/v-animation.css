@@ -1,0 +1,53 @@
+@charset "utf-8";
+@keyframes myslideAni {
+  0% {transform: translateX(100px);}
+  50% {transform: translateY(100px);}
+  100% {transform: translate(0,0);}
+}
+
+h1, h2 {
+  margin-top: 50px;
+  padding: 0 20px;
+}
+div {
+  border: 1px solid rgb(126, 126, 126);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 20px 10px;
+  overflow: hidden;
+  text-align: center;
+}
+button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  border: none;
+  box-shadow: 1px 1px 5px rgb(126, 126, 126);
+  border-radius: 10px;
+  background-color: rgb(200, 224, 255);
+  cursor: pointer;
+}
+button:hover {
+  color: #fff;
+  background-color: rgb(126, 126, 126);
+}
+button.red:hover {
+  background-color: rgb(126, 126, 126);
+}
+button.red {
+  background-color: rgb(250, 194, 194);
+}
+
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: translateX(50px);
+}
+/* https://animate.style/ 내 css 위에 연결 */
+/* animation 연결 후 사용할 때 duration 필수 */
+.myslide-enter-active {
+  animation: bounce 1s;
+}

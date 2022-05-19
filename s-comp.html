@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Component</title>
+  <style>
+    button {
+      font-size: 1.5em;
+    }
+  </style>
+</head>
+<body>
+  <div id="vm1">
+    <s-comp-local v-bind:msgcomp="msg"></s-comp-local>
+    <s-comp-global></s-comp-global>
+  </div>
+  <script src="/js/vue.min.js"></script>
+  <script>
+    Vue.component('s-comp-global',{
+      template: '<button>{{msgcompg}}</button>',
+      data: function(){
+        return {msgcompg : '반값습니다!'}
+      }
+    });
+
+    new Vue({
+      el: '#vm1',
+      data: {
+        msg: '안녕ㅎ세요!'
+      },
+      components: {
+        's-comp-local': {
+          template: '<button>{{msgcomp}}</button>',
+          props: ['msgcomp']
+        }
+      }
+    });
+  </script>
+</body>
+</html>

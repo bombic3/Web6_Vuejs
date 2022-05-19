@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vueoption</title>
+  <link rel="stylesheet" href="css/vueoption.css">
+</head>
+<body>
+  <h1>Vue Options</h1>
+  <section>
+    <h2>버튼 클릭시 컨텐츠 변경(함수적용)</h2>
+    <!-- vm = Vue Model(관용적으로 쓰는 변수이름) -->
+    <div id="vm1">
+      <p>{{ msgMain }}</p>
+      <p>{{ msgSub }}</p>
+      <button v-on:click="newMSG">Button</button>
+      <button v-on:click="resetMSG" class="red">Reset</button>
+    </div>
+  </section>
+  <section>
+    <h2>과제</h2>
+    <div id="vm2">
+      <p>Good {{ greeting }}</p>
+      <button v-on:click="morning">Morning</button>
+      <button v-on:click="afternoon">Afternoon</button>
+      <button v-on:click="evening">Evening</button>
+    </div>
+    
+  </section>
+  <section>
+    <h2>Template VS Data</h2>
+    <div id="vm3">
+      <p>{{ msgT }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>methods 함수</h2>
+    <div id="vm4">
+      <p>{{ n1 }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>methods 함수실행</h2>
+    <div id="vm5">
+      <p>{{ msgN }}</p>
+      <p>{{ msgPrint() }}</p>
+    </div>
+  </section>
+  <section>
+    <h2>증감버튼 만들기</h2>
+    <div id="vm6">
+      <p>{{ n2 }}</p>
+      <button @click="up">up</button>
+      <button v-on:click="down" class="red">down</button>
+    </div>
+  </section>
+
+  <script src="js/vue.min.js"></script>
+  <script src="js/vueoption.js"></script>
+</body>
+</html>

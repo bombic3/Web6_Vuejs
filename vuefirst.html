@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue로 hello world</title>
+</head>
+<body>
+  <div id="hello">
+    {{msg}}
+  </div>
+
+  <!-- vue2 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <!-- <script src="js/vue.min.js"></script> -->
+  <script>
+    new Vue({
+      el: '#hello',
+      // 엘리먼트(key) #hello(value) 불러옴
+      data: {msg: 'Hello World'}
+    });
+  </script>
+
+  <!-- vue3 vue3는 new Vue(); 안 씀.
+      아직 개발단계(베타느낌) 순자처럼 메서드, 함수이용
+      vue2 하위버전 호환 안 됨 -->
+  <!-- <script src="https://unpkg.com/vue@next"></script>
+  <script>
+    
+    // vue3 문법 data(){}함수에 값 넣기
+    const helloMsg = {
+      data(){
+        return{
+          msg: 'Vue3 Hello World'
+        }
+      }
+    }
+
+    Vue.createApp(helloMsg).mount('#hello');
+    // Vue.명령메서드.대상지목
+    // Vue.createApp().mount() -->
+
+  </script>
+</body>
+</html>
